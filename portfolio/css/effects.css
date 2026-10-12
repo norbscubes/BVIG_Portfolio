@@ -1,0 +1,13 @@
+#wave {
+  position: fixed; left: 0; bottom: 0; width: 100vw; height: 180px;
+  pointer-events: none; z-index: 1; opacity: .35;
+  mask-image: linear-gradient(to top, #000 40%, transparent);
+  -webkit-mask-image: linear-gradient(to top, #000 40%, transparent);
+}
+.edge-blur {
+  position: fixed; left: 0; right: 0; height: 56px;
+  pointer-events: none; z-index: 50;
+  backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+}
+.edge-blur.top { top: 0; mask-image: linear-gradient(to bottom, #000, transparent); -webkit-mask-image: linear-gradient(to bottom, #000, transparent); }
+.edge-blur.bottom { bottom: 0; mask-image: linear-gradient(to top, #000, transparent); -webkit-mask-image: linear-gradient(to top, #000, transparent); }

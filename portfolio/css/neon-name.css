@@ -1,0 +1,25 @@
+.panel > .neon-name {
+  font: 700 clamp(44px, 6vw, 84px) / 1.05 "Segoe UI", sans-serif;
+  letter-spacing: .04em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px #b9fff0;
+  background: none; text-shadow: none;
+  filter:
+    drop-shadow(0 0 2px #fff)
+    drop-shadow(0 0 6px var(--accent))
+    drop-shadow(0 0 16px var(--accent))
+    drop-shadow(0 0 32px rgba(60,242,180,.7));
+}
+.panel > h2.neon-name { font-size: clamp(38px, 4.2vw, 60px); }
+.neon-name .ltr {
+  display: inline-block; white-space: pre;
+  animation: letter-hover 3.2s ease-in-out infinite, neon-pulse 4s ease-in-out infinite;
+}
+@keyframes letter-hover {
+  0%, 100% { translate: 0 -3px; }
+  50% { translate: 0 3px; }
+}
+@keyframes neon-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .6; }
+}

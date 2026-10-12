@@ -1,0 +1,19 @@
+main { position: relative; }
+.panel > *:not(.term) { position: relative; z-index: 3; }
+.panel {
+  min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+  width: min(480px, 90vw); padding: 0 6vw; gap: 14px;
+}
+.panel.right { margin-left: auto; }
+.panel > * {
+  background: transparent;
+  text-shadow: 0 0 12px var(--bg), 0 0 4px var(--bg);
+}
+.panel { position: relative; }
+.contact-list { gap: 14px; margin-top: 22px; }
+.contact-list a { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; color: var(--text); transition: color .2s, translate .2s; }
+.contact-list a:hover { color: var(--accent); translate: 4px 0; }
+.contact-list svg { width: 26px; height: 26px; flex: none; }
+.panel .meta { display: block; font: 12px/1.6 Consolas, monospace; letter-spacing: .5px; color: rgba(60,242,180,.75); margin: 2px 0 4px; }
+#about { width: min(640px, 92vw); }
+.role { color: var(--accent) !important; font-weight: 600; font-size: clamp(17px, 1.35vw, 21px); }

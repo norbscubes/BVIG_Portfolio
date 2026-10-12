@@ -1,0 +1,37 @@
+.panel > figure.portrait {
+  --pw: 330px;
+  position: absolute; top: 50%; translate: 0 -50%;
+  left: calc(100vw - 5vw - var(--pw)); width: var(--pw);
+  margin: 0; z-index: 2;
+  border: 1px solid rgba(60,242,180,.35); border-radius: 6px;
+  background: rgba(5,8,13,.82);
+  box-shadow: 0 0 0 1px rgba(60,242,180,.06), 0 0 18px rgba(60,242,180,.12), 0 0 40px 20px rgba(5,8,13,.9);
+  overflow: hidden; text-shadow: none;
+}
+.portrait-bar {
+  display: flex; align-items: center; gap: 6px; padding: 7px 10px;
+  border-bottom: 1px solid rgba(60,242,180,.2);
+  font: 11px Consolas, monospace; letter-spacing: 1px; color: rgba(60,242,180,.6);
+}
+.portrait-bar i { width: 7px; height: 7px; border-radius: 50%; border: 1px solid rgba(60,242,180,.6); }
+.portrait-bar span { margin-left: 8px; }
+.portrait pre.ascii {
+  margin: 0; padding: 14px 10px 6px; text-align: center; white-space: pre;
+  font: 9px/1.25 Consolas, monospace; letter-spacing: 0;
+  color: #b9fff0; text-shadow: 0 0 4px rgba(60,242,180,.6);
+  animation: portrait-flicker 6s steps(1) infinite;
+}
+.portrait::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    repeating-linear-gradient(to bottom, rgba(255,255,255,.025) 0 1px, transparent 1px 3px),
+    linear-gradient(to bottom, transparent 0%, rgba(60,242,180,.08) 50%, transparent 100%) 0 -100% / 100% 40% no-repeat;
+  animation: portrait-scan 5s linear infinite;
+}
+.portrait figcaption {
+  padding: 8px 12px 12px; text-align: center;
+  font: italic 13px Consolas, monospace; color: #c3d1dc;
+}
+.portrait .prompt { color: var(--accent); font-style: normal; }
+@keyframes portrait-scan { to { background-position: 0 0, 0 250%; } }
+@keyframes portrait-flicker { 0%, 100% { opacity: 1; } 47% { opacity: .85; } 48% { opacity: 1; } 73% { opacity: .92; } 74% { opacity: 1; } }

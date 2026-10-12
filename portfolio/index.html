@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baron Luis B. Vigonte — Associate Engineer, Product Engineering</title>
+  <link rel="stylesheet" href="css/base.css?v=8">
+  <link rel="stylesheet" href="css/cpu.css?v=8">
+  <link rel="stylesheet" href="css/panels.css?v=8">
+  <link rel="stylesheet" href="css/neon-name.css?v=8">
+  <link rel="stylesheet" href="css/terminal.css?v=8">
+  <link rel="stylesheet" href="css/effects.css?v=8">
+  <link rel="stylesheet" href="css/nav-arrows.css?v=8">
+  <link rel="stylesheet" href="css/portrait.css?v=8">
+</head>
+<body>
+  <div class="scene">
+    <div class="chip" id="chip">
+      <div class="layer pins" data-depth="0" id="pins"></div>
+      <div class="layer substrate" data-depth="1" id="substrate">
+        <span class="tri"></span>
+      </div>
+      <div class="layer die" data-depth="2"><div class="die-core"></div></div>
+      <div class="layer tim" data-depth="3"></div>
+      <div class="layer ihs" data-depth="4">
+        <div class="ihs-top">
+          <span class="brand">BVIG</span>
+          <span class="model">CORE&nbsp;PE-MFG</span>
+          <span class="sub">BARON LUIS B. VIGONTE</span>
+          <span class="sn">ASSOC ENGR · 2026 · PHL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <canvas id="wave"></canvas>
+  <div class="edge-blur top"></div>
+  <div class="edge-blur bottom"></div>
+  <div class="hint" id="hint">move cursor to the edges · scroll to rotate</div>
+  <main>
+    <section class="panel left" id="about">
+      <figure class="portrait" aria-label="ASCII portrait of Baron Luis B. Vigonte">
+        <div class="portrait-bar"><i></i><i></i><i></i><span>~/baron/portrait.txt</span></div>
+        <pre class="ascii">#%%%%% %%%#%
+%%%%%%%%%@%%%%%@@%%
+@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@%%%%%%%@@@@@@@@@@
+@@@@##*+++++*%*%@@@@@@@@
+@@@*+++=====+*###@@@@@@@
+@%##*#**=====+*++***@@@
+%##%%##%*+=+#%%%#+++%*+
++**+++==+++=======+**=+
+*+===+++===++=--=+++=
+++++*+++====+===+*=
+*+==+**====+====+
+*++=========+++
+*****++++++==++:
++*+++======-:.::
+..::---*=-:.......-=:..
+::.::::::-+++:.:---:::::.......
+-::.::::--:::...:::::...............
+---:::::---::.....:::::::::......:.....
+:--:::::--=-::....::::::::......::......:.
+::--:::::-:--::..:::::::::....::.........::.
+---:::::::::-:.:::::.::::...::::......:...::.</pre>
+        <figcaption><span class="prompt">&gt;</span> "Turning ideas into systems."</figcaption>
+      </figure>
+      <h4>01 / About</h4>
+      <h1 class="neon-name">Baron Luis B. Vigonte</h1>
+      <p class="role">Associate Engineer, Product Engineering (Mfg.)</p>
+      <p>At Analog Devices, I support high-volume manufacturing of precision mixed-signal ICs — test program debug, yield analysis, and data-driven disposition.</p>
+      <p class="meta">BS Computer Engineering (Software Development) · Mapúa Malayan Colleges Laguna · 2026</p>
+    </section>
+    <section class="panel right" id="experience">
+      <h4>02 / Experience</h4>
+      <h2 class="neon-name">Experience</h2>
+      <ul>
+        <li><b>Equipment &amp; Facilities Engineering Intern</b> — Varex Imaging Philippines<span class="meta">May – Jul 2026 · Calamba, Laguna</span>Built and deployed VESPIQ, a spare parts inventory tracking system: requirements, design, documentation, and user training. Also supported utility monitoring, PMS document audits, and document digitization.</li>
+        <li><b>Technical Volunteer</b> — Mapúa Malayan Colleges Laguna<span class="meta">Aug 2024 – Apr 2026</span>Ran and troubleshot audio/visual systems for campus events.</li>
+      </ul>
+    </section>
+    <section class="panel left" id="projects">
+      <h4>03 / Projects</h4>
+      <h2 class="neon-name">Projects</h2>
+      <ul>
+        <li><b>AquaSuite</b> — IoT water filtration system for soilless cultivation (project designer).</li>
+        <li><b>VESPIQ</b> — spare parts inventory tracking system that digitizes inventory workflows.</li>
+        <li><b>Speech Moderation &amp; Selective Encryption</b> — ML-based framework for content filtering and data security.</li>
+        <li><b>APricoT</b> — auditory productivity task manager with audio-driven features.</li>
+      </ul>
+    </section>
+    <section class="panel right" id="leadership">
+      <h4>04 / Leadership</h4>
+      <h2 class="neon-name">Leadership</h2>
+      <ul>
+        <li><b>Tech Committee Head</b> — ICpEP MMCL<span class="meta">Aug 2025 – Jul 2026</span>Led the tech team for event execution and coordination.</li>
+        <li><b>VP External Affairs</b> — ICpEP MMCL<span class="meta">Aug 2024 – Aug 2025</span>Hosted the 2024 General Assembly; organized GameJam+ and department promo booths.</li>
+      </ul>
+    </section>
+    <section class="panel left" id="skills">
+      <h4>05 / Skills</h4>
+      <h2 class="neon-name">Skills</h2>
+      <div class="tags">
+        <span>Python</span><span>Software Development</span><span>System Requirements Docs</span>
+        <span>IoT</span><span>Embedded Systems Design</span><span>Machine Learning</span>
+        <span>ATE (ETS / ASL)</span><span>STDF Analysis</span><span>Yield Engineering</span>
+      </div>
+      <p class="meta">Certified: Cisco CCST — IT Support · Cybersecurity</p>
+    </section>
+    <section class="panel right" id="contact">
+      <h4>06 / Contact</h4>
+      <h2 class="neon-name">Get in touch</h2>
+      <ul class="contact-list">
+        <li><a href="mailto:baronluisvigonte@gmail.com"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4caf50" d="M45,16.2l-5,2.75l-5,4.75L35,40h7c1.657,0,3-1.343,3-3V16.2z"/><path fill="#1e88e5" d="M3,16.2l3.614,1.71L13,23.7V40H6c-1.657,0-3-1.343-3-3V16.2z"/><polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"/><path fill="#c62828" d="M3,12.298V16.2l10,7.5V11.2L9.876,8.859C9.132,8.301,8.228,8,7.298,8h0C4.924,8,3,9.924,3,12.298z"/><path fill="#fbc02d" d="M45,12.298V16.2l-10,7.5V11.2l3.124-2.341C38.868,8.301,39.772,8,40.702,8h0C43.076,8,45,9.924,45,12.298z"/></svg><span>baronluisvigonte@gmail.com</span></a></li>
+        <li><a href="https://www.linkedin.com/in/baron-luis-vigonte-b5a43b324/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="2" fill="#fff"/><path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span>LinkedIn</span></a></li>
+        <li><a href="https://github.com/norbscubes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a></li>
+      </ul>
+    </section>
+  </main>
+  <script type="module">
+    import { animate, stagger } from 'https://cdn.jsdelivr.net/npm/animejs@4/+esm';
+    window.Site = window.Site || {};
+    Site.anime = { animate, stagger };
+  </script>
+  <script defer src="js/utils.js?v=8"></script>
+  <script defer src="js/cpu.js?v=8"></script>
+  <script defer src="js/terminal-data.js?v=8"></script>
+  <script defer src="js/terminal.js?v=8"></script>
+  <script defer src="js/panels.js?v=8"></script>
+  <script defer src="js/wave.js?v=8"></script>
+  <script defer src="js/neon-name.js?v=8"></script>
+  <script defer src="js/nav-arrows.js?v=8"></script>
+</body>
+</html>

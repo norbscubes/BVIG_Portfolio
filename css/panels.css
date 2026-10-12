@@ -11,7 +11,7 @@ main { position: relative; }
 }
 .panel { position: relative; }
 .contact-list { gap: 14px; margin-top: 22px; }
-.contact-list a { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; color: var(--text); transition: color .2s, translate .2s; }
+.contact-list a { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; font-family: Consolas, "Courier New", monospace; color: var(--text); transition: color .2s, translate .2s; }
 .contact-list a:hover { color: var(--accent); translate: 4px 0; }
 .contact-list svg { width: 26px; height: 26px; flex: none; }
 .panel .meta { display: block; font: 12px/1.6 Consolas, monospace; letter-spacing: .5px; color: rgba(60,242,180,.75); margin: 2px 0 4px; }

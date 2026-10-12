@@ -17,3 +17,12 @@ main { position: relative; }
 .panel .meta { display: block; font: 12px/1.6 Consolas, monospace; letter-spacing: .5px; color: rgba(60,242,180,.75); margin: 2px 0 4px; }
 #about { width: min(640px, 92vw); }
 .role { color: var(--accent) !important; font-weight: 600; font-size: clamp(17px, 1.35vw, 21px); }
+@media (max-width: 768px), (pointer: coarse) {
+  .panel > *:not(.term)::before {
+    content: ""; position: absolute; inset: -10px -14px;
+    border-radius: 18px;
+    background: rgba(5,8,13,.55);
+    filter: blur(12px);
+    z-index: -1; pointer-events: none;
+  }
+}

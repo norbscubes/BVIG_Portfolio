@@ -15,15 +15,15 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="css/base.css?v=20">
-  <link rel="stylesheet" href="css/cpu.css?v=20">
-  <link rel="stylesheet" href="css/panels.css?v=20">
-  <link rel="stylesheet" href="css/neon-name.css?v=20">
-  <link rel="stylesheet" href="css/terminal.css?v=20">
-  <link rel="stylesheet" href="css/effects.css?v=20">
-  <link rel="stylesheet" href="css/nav-arrows.css?v=20">
-  <link rel="stylesheet" href="css/portrait.css?v=20">
-  <link rel="stylesheet" href="css/progress-dots.css?v=20">
+  <link rel="stylesheet" href="css/base.css?v=21">
+  <link rel="stylesheet" href="css/cpu.css?v=21">
+  <link rel="stylesheet" href="css/panels.css?v=21">
+  <link rel="stylesheet" href="css/neon-name.css?v=21">
+  <link rel="stylesheet" href="css/terminal.css?v=21">
+  <link rel="stylesheet" href="css/effects.css?v=21">
+  <link rel="stylesheet" href="css/nav-arrows.css?v=21">
+  <link rel="stylesheet" href="css/portrait.css?v=21">
+  <link rel="stylesheet" href="css/progress-dots.css?v=21">
 </head>
 <body>
   <div class="scene">
@@ -129,8 +129,14 @@
       </ul>
     </section>
   </main>
+  <script>
+    (() => {
+      const f = document.querySelector('#about > .portrait').cloneNode(true);
+      document.getElementById('contact').prepend(f);
+    })();
+  </script>
   <script type="module">
-    const V = '?v=20';
+    const V = '?v=21';
     const SCRIPTS = ['utils', 'cpu', 'terminal-data', 'terminal', 'panels', 'wave', 'neon-name', 'nav-arrows', 'progress-dots'];
     const stub = () => {
       const last = v => Array.isArray(v) ? v[v.length - 1] : v;

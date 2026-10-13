@@ -4,14 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Baron Luis B. Vigonte — Associate Engineer, Product Engineering</title>
-  <link rel="stylesheet" href="css/base.css?v=17">
-  <link rel="stylesheet" href="css/cpu.css?v=17">
-  <link rel="stylesheet" href="css/panels.css?v=17">
-  <link rel="stylesheet" href="css/neon-name.css?v=17">
-  <link rel="stylesheet" href="css/terminal.css?v=17">
-  <link rel="stylesheet" href="css/effects.css?v=17">
-  <link rel="stylesheet" href="css/nav-arrows.css?v=17">
-  <link rel="stylesheet" href="css/portrait.css?v=17">
+  <meta name="description" content="Baron Luis B. Vigonte — Associate Engineer, Product Engineering (Mfg.). Portfolio of test engineering, embedded and software projects.">
+  <meta name="theme-color" content="#05080d">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Baron Luis B. Vigonte — Portfolio">
+  <meta property="og:description" content="Associate Engineer, Product Engineering (Mfg.). Test engineering, embedded systems and software projects.">
+  <meta property="og:url" content="https://norbscubes.github.io/BVIG_Portfolio/">
+  <meta property="og:image" content="https://norbscubes.github.io/BVIG_Portfolio/assets/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/base.css?v=18">
+  <link rel="stylesheet" href="css/cpu.css?v=18">
+  <link rel="stylesheet" href="css/panels.css?v=18">
+  <link rel="stylesheet" href="css/neon-name.css?v=18">
+  <link rel="stylesheet" href="css/terminal.css?v=18">
+  <link rel="stylesheet" href="css/effects.css?v=18">
+  <link rel="stylesheet" href="css/nav-arrows.css?v=18">
+  <link rel="stylesheet" href="css/portrait.css?v=18">
+  <link rel="stylesheet" href="css/progress-dots.css?v=18">
 </head>
 <body>
   <div class="scene">
@@ -118,17 +130,34 @@
     </section>
   </main>
   <script type="module">
-    import { animate, stagger } from 'https://cdn.jsdelivr.net/npm/animejs@4/+esm';
+    const V = '?v=18';
+    const SCRIPTS = ['utils', 'cpu', 'terminal-data', 'terminal', 'panels', 'wave', 'neon-name', 'nav-arrows', 'progress-dots'];
+    const stub = () => {
+      const last = v => Array.isArray(v) ? v[v.length - 1] : v;
+      const unit = { translateX: 'px', translateY: 'px', translateZ: 'px', rotate: 'deg', rotateX: 'deg', rotateZ: 'deg' };
+      const animate = (targets, props) => {
+        const els = targets instanceof Element ? [targets] : [...targets];
+        els.forEach(el => {
+          const tf = Object.keys(unit).filter(k => k in props).map(k => `${k}(${last(props[k])}${unit[k]})`);
+          if (tf.length) el.style.transform = tf.join(' ');
+          if ('opacity' in props) el.style.opacity = last(props.opacity);
+        });
+      };
+      return { animate, stagger: () => 0 };
+    };
+    let anime;
+    try { anime = await import('./js/vendor/anime.esm.js'); }
+    catch { try { anime = await import('https://cdn.jsdelivr.net/npm/animejs@4/+esm'); } catch { anime = stub(); } }
     window.Site = window.Site || {};
-    Site.anime = { animate, stagger };
+    Site.anime = { animate: anime.animate, stagger: anime.stagger };
+    for (const name of SCRIPTS) {
+      await new Promise(res => {
+        const s = document.createElement('script');
+        s.src = `js/${name}.js${V}`;
+        s.onload = s.onerror = res;
+        document.body.appendChild(s);
+      });
+    }
   </script>
-  <script defer src="js/utils.js?v=17"></script>
-  <script defer src="js/cpu.js?v=17"></script>
-  <script defer src="js/terminal-data.js?v=17"></script>
-  <script defer src="js/terminal.js?v=17"></script>
-  <script defer src="js/panels.js?v=17"></script>
-  <script defer src="js/wave.js?v=17"></script>
-  <script defer src="js/neon-name.js?v=17"></script>
-  <script defer src="js/nav-arrows.js?v=17"></script>
 </body>
 </html>

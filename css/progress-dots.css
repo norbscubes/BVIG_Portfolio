@@ -1,0 +1,25 @@
+.progress-dots {
+  position: fixed; right: 2vw; top: 50%; transform: translateY(-50%);
+  z-index: 60; display: flex; flex-direction: column; gap: 18px;
+}
+.progress-dots::before {
+  content: ""; position: absolute; left: 50%; top: 6px; bottom: 6px; width: 1px;
+  background: rgba(60,242,180,.25); transform: translateX(-50%); z-index: -1;
+}
+.progress-dots .dot {
+  position: relative; width: 10px; height: 10px; padding: 0; border-radius: 50%;
+  border: 1px solid var(--accent); background: var(--bg); cursor: pointer;
+  transition: background .3s ease, box-shadow .3s ease, transform .18s ease;
+}
+.progress-dots .dot:hover { transform: scale(1.25); }
+.progress-dots .dot.on { background: var(--accent); box-shadow: 0 0 6px var(--accent), 0 0 14px rgba(60,242,180,.5); }
+.progress-dots .lbl {
+  position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+  font: 12px Consolas, monospace; letter-spacing: 2px; color: var(--accent);
+  white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .2s ease;
+}
+.progress-dots .dot:hover .lbl, .progress-dots .dot:focus-visible .lbl { opacity: .7; }
+.lite .progress-dots { right: 3vw; gap: 14px; }
+.lite .progress-dots .dot { width: 7px; height: 7px; }
+.lite .progress-dots .dot.on { box-shadow: 0 0 5px var(--accent); }
+.lite .progress-dots .lbl { display: none; }

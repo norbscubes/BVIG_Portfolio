@@ -6,21 +6,13 @@ nav.innerHTML = '<button class="nav-arrow up" aria-label="Previous section"><spa
   '<button class="nav-arrow down" aria-label="Next section"><span class="tri"></span></button>';
 document.body.appendChild(nav);
 const [up, down] = nav.children;
-const current = () => {
-  const mid = innerHeight / 2;
-  let best = 0, bestD = Infinity;
-  sections.forEach((s, i) => {
-    const r = s.getBoundingClientRect();
-    const dist = Math.abs(r.top + r.height / 2 - mid);
-    if (dist < bestD) { bestD = dist; best = i; }
-  });
-  return best;
-};
+const current = () => Site.currentSection(sections);
 const go = dir => {
   const i = Math.min(sections.length - 1, Math.max(0, current() + dir));
-  sections[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  sections[i].scrollIntoView({ behavior: Site.calm ? 'auto' : 'smooth', block: 'center' });
 };
 const splash = (btn, e) => {
+  if (Site.calm) return;
   const r = btn.getBoundingClientRect();
   const x = e.clientX || r.left + r.width / 2, y = e.clientY || r.top + r.height / 2;
   for (let k = 0; k < 14; k++) {

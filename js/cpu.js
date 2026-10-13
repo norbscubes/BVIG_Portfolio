@@ -62,20 +62,20 @@ function updateExplode() {
   const m = resetHold ? { x: cx, y: cy } : mouse;
   const dx = (m.x - cx) / cx, dy = (m.y - cy) / cy;
   const dist = Math.min(Math.hypot(dx, dy) / Math.SQRT2, 1);
-  const e = smoothstep(0.12, 0.85, dist);
+  const e = Site.calm ? 0 : smoothstep(0.12, 0.85, dist);
   layers.forEach(l => {
     const d = +l.dataset.depth;
     animate(l, {
       translateZ: d * (BASE_GAP + EXPLODE_GAP * e),
       translateX: dx * d * DRIFT * e,
       translateY: dy * d * DRIFT * e,
-      duration: 900,
+      duration: Site.calm ? 0 : 900,
       ease: 'outExpo',
     });
   });
 }
 
-const onArrow = ev => !!(ev.target instanceof Element && ev.target.closest('.nav-arrow'));
+const onArrow = ev => !!(ev.target instanceof Element && ev.target.closest('.nav-arrow, .progress-dots'));
 addEventListener('pointerover', ev => {
   const hold = onArrow(ev);
   if (hold !== resetHold) Site.cpuReset(hold);
@@ -93,7 +93,7 @@ function updateRotation() {
   animate(chip, {
     rotateX: 55 - p * 35,
     rotateZ: -30 + p * 360,
-    duration: 700,
+    duration: Site.calm ? 0 : 700,
     ease: 'outQuart',
   });
   document.getElementById('hint').style.opacity = p > 0.05 ? 0 : 0.7;

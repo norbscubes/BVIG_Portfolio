@@ -45,7 +45,8 @@ function drawWave(t) {
     ctx.shadowBlur = Site.lite ? 0 : 6;
     ctx.stroke();
   });
-  requestAnimationFrame(drawWave);
+  if (!Site.calm) requestAnimationFrame(drawWave);
 }
 requestAnimationFrame(drawWave);
+if (Site.calm) addEventListener('resize', () => requestAnimationFrame(drawWave));
 })();

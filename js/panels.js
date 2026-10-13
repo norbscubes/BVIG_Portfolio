@@ -21,13 +21,13 @@ function updateFloaters() {
     const dirY = overTop > overBottom ? -1 : 1;
     if (portrait) {
       portrait.style.opacity = 1 - t;
-      portrait.style.transform = "translateX(" + (-side * t * 160) + "px) translateY(" + (dirY * t * 30) + "px)";
+      if (!Site.calm) portrait.style.transform = "translateX(" + (-side * t * 160) + "px) translateY(" + (dirY * t * 30) + "px)";
     }
     const order = dirY < 0 ? kids : [...kids].reverse();
     order.forEach((el, i) => {
       const ti = over > 0 ? smoothstep(0.1, 0.7, over + i * 0.07) : t;
       el.style.opacity = 1 - ti;
-      el.style.transform = `translateX(${Site.lite ? 0 : side * ti * 160}px) translateY(${dirY * ti * 30}px)`;
+      el.style.transform = `translateX(${Site.lite || Site.calm ? 0 : side * ti * 160}px) translateY(${Site.calm ? 0 : dirY * ti * 30}px)`;
     });
   });
 }

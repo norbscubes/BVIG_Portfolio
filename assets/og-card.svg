@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#05080d"/>
+  <g fill="none" stroke="#3cf2b4" stroke-width="4" stroke-linecap="round" transform="translate(110 165)">
+    <rect x="45" y="45" width="210" height="210" rx="16"/>
+    <rect x="100" y="100" width="100" height="100" rx="6"/>
+    <path d="M90 0v45M130 0v45M170 0v45M210 0v45M90 255v45M130 255v45M170 255v45M210 255v45M0 90h45M0 130h45M0 170h45M0 210h45M255 90h45M255 130h45M255 170h45M255 210h45"/>
+  </g>
+  <text x="500" y="285" font-family="Segoe UI, sans-serif" font-size="58" font-weight="600" fill="none" stroke="#3cf2b4" stroke-width="2">Baron Luis B. Vigonte</text>
+  <text x="502" y="345" font-family="Segoe UI, sans-serif" font-size="28" fill="#d6e3ec">Associate Engineer, Product Engineering (Mfg.)</text>
+  <text x="502" y="420" font-family="Consolas, monospace" font-size="24" fill="#3cf2b4" opacity=".7">&gt; BVIG_ portfolio</text>
+</svg>

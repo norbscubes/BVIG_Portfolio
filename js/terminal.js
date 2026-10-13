@@ -28,7 +28,8 @@ async function runTerm(term, script) {
       push('');
     }
   }
-  render(true);
+  render(!Site.calm);
+  if (Site.calm) return;
   await sleep(Math.random() * 400);
   for (;;) {
     const round = shuffle([...script, ...shuffle([...COMMON]).slice(0, 3)]);

@@ -98,5 +98,19 @@
 }
 .layer.tim::before { border-radius: 40%; }
 .layer:not(.pins)::before { background: rgba(5,8,13,.45); inset: -10px; }
-.lite .layer::before { filter: none; background: radial-gradient(closest-side, rgba(5,8,13,.85), rgba(5,8,13,.6) 75%, transparent); }
-.lite .layer:not(.pins)::before { background: radial-gradient(closest-side, rgba(5,8,13,.45), transparent); }
+.lite .chip { will-change: transform; }
+.lite .layer { --line: rgba(60,242,180,.95); --glow: none; }
+.lite .layer, .lite .die, .lite .ihs, .lite .substrate { box-shadow: none; }
+.lite .ihs-top { text-shadow: none; }
+.lite .layer::before { display: none; }
+.lite .substrate::before {
+  display: block; filter: none; inset: -24px;
+  background: radial-gradient(closest-side, rgba(5,8,13,.9), rgba(5,8,13,.65) 75%, transparent);
+}
+.lite .substrate {
+  background:
+    linear-gradient(rgba(5,8,13,1), rgba(5,8,13,1)) center / 37% 37% no-repeat,
+    radial-gradient(circle, transparent 1.4px, rgba(217,164,65,.8) 1.6px, rgba(217,164,65,.8) 2.5px, transparent 2.7px) 10px 10px / calc(320px / 24) calc(320px / 24),
+    rgba(60,242,180,.05);
+}
+.lite .die { outline: 1px dashed rgba(200,210,220,.5); outline-offset: 10px; }

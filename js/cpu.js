@@ -2,12 +2,17 @@
 const { animate, stagger } = Site.anime;
 const { smoothstep } = Site;
 const chip = document.getElementById('chip');
-const layers = [...document.querySelectorAll('.layer')];
 const pins = document.getElementById('pins');
+if (Site.lite) {
+  pins.remove();
+  document.querySelector('.layer.tim').remove();
+  document.querySelector('.layer.die').dataset.depth = 2;
+}
+const layers = [...document.querySelectorAll('.layer')];
 const substrate = document.getElementById('substrate');
 const dieCore = document.querySelector('.die-core');
 
-const GRID = 24;
+const GRID = Site.lite ? 0 : 24;
 for (let r = 0; r < GRID; r++) {
   for (let c = 0; c < GRID; c++) {
     const pin = document.createElement('i');
@@ -58,6 +63,7 @@ Site.cpuReset = on => {
 
 function updateExplode() {
   pending = false;
+  if (Site.lite) return;
   const cx = innerWidth / 2, cy = innerHeight / 2;
   const m = resetHold ? { x: cx, y: cy } : mouse;
   const dx = (m.x - cx) / cx, dy = (m.y - cy) / cy;
@@ -87,9 +93,27 @@ addEventListener('pointermove', ev => {
   if (!pending) { pending = true; requestAnimationFrame(updateExplode); }
 });
 
+const rot = { x: 55, z: -30, tx: 55, tz: -30, running: false };
+function stepRotation() {
+  rot.x += (rot.tx - rot.x) * 0.15;
+  rot.z += (rot.tz - rot.z) * 0.15;
+  const done = Math.abs(rot.tx - rot.x) < 0.05 && Math.abs(rot.tz - rot.z) < 0.05;
+  if (done) { rot.x = rot.tx; rot.z = rot.tz; }
+  chip.style.transform = `rotateX(${rot.x}deg) rotateZ(${rot.z}deg)`;
+  rot.running = !done;
+  if (rot.running) requestAnimationFrame(stepRotation);
+}
 function updateRotation() {
   const max = document.documentElement.scrollHeight - innerHeight;
   const p = max > 0 ? scrollY / max : 0;
+  document.getElementById('hint').style.opacity = p > 0.05 ? 0 : 0.7;
+  if (Site.lite) {
+    rot.tx = 55 - p * 35;
+    rot.tz = -30 + p * 360;
+    if (Site.calm) { rot.x = rot.tx; rot.z = rot.tz; }
+    if (!rot.running) { rot.running = true; requestAnimationFrame(stepRotation); }
+    return;
+  }
   animate(chip, {
     rotateX: 55 - p * 35,
     rotateZ: -30 + p * 360,

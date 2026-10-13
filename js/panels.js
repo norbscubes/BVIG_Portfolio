@@ -13,8 +13,9 @@ function updateFloaters() {
   const vh = innerHeight;
   groups.forEach(({ panel, kids, side, term, portrait }) => {
     const r = panel.getBoundingClientRect();
-    const overTop = Math.max(0, -r.top);
-    const overBottom = Math.max(0, r.bottom - vh);
+    const slack = Site.lite ? Math.max(0, r.height - vh * 0.9) / 2 : 0;
+    const overTop = Math.max(0, -r.top - slack);
+    const overBottom = Math.max(0, r.bottom - vh - slack);
     const over = Math.max(overTop, overBottom) / Math.max(r.height, 1);
     const t = smoothstep(0.1, 0.7, over);
     const dirY = overTop > overBottom ? -1 : 1;

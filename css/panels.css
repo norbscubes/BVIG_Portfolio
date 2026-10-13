@@ -24,7 +24,8 @@ main { position: relative; }
     background: radial-gradient(closest-side, rgba(5,8,13,.6), rgba(5,8,13,.45) 70%, transparent);
     z-index: -1; pointer-events: none;
   }
-  .panel, .panel.right { width: 100%; box-sizing: border-box; padding: 90px 7vw; margin-left: 0; }
+  .panel, .panel.right { width: 100%; box-sizing: border-box; padding: 70px 6vw; margin-left: 0; gap: 10px; }
+  .panel p, .panel li { font-size: 15px; line-height: 1.55; }
   .panel > figure.portrait {
     position: relative; top: auto; left: auto; translate: none;
     order: -1; align-self: center; width: min(300px, 100%); margin-bottom: 10px;

@@ -10,7 +10,10 @@
     drop-shadow(0 0 16px var(--accent))
     drop-shadow(0 0 32px rgba(60,242,180,.7));
 }
-.lite .panel > .neon-name { filter: drop-shadow(0 0 5px rgba(60,242,180,.8)); }
+.lite .panel > .neon-name {
+  filter: drop-shadow(0 0 5px rgba(60,242,180,.8));
+  color: var(--bg); -webkit-text-stroke-width: 3px; paint-order: stroke fill;
+}
 .lite .neon-name .ltr { animation: none; }
 .panel > h2.neon-name { font-size: clamp(38px, 4.2vw, 60px); }
 .neon-name .ltr {

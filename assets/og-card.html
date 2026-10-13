@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/cpu.css">
+  <link rel="stylesheet" href="../css/portrait.css">
+  <style>
+    html, body { width: 1200px; height: 630px; overflow: hidden; }
+    .scene { position: absolute; inset: 0 auto 0 0; width: 480px; }
+    .chip { scale: .78; }
+    .info { position: absolute; left: 470px; top: 0; bottom: 0; width: 360px; display: flex; flex-direction: column; justify-content: center; gap: 16px; }
+    .info h1 { font: 700 54px/1.05 "Segoe UI", sans-serif; color: transparent; -webkit-text-stroke: 1.2px var(--accent); text-shadow: 0 0 8px rgba(60,242,180,.35); }
+    .info p { font-size: 21px; color: #d6e3ec; line-height: 1.4; }
+    .info code { font: 18px Consolas, monospace; color: rgba(60,242,180,.75); }
+    .panel > figure.portrait { --pw: 300px; left: 865px; }
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <div class="chip" id="chip">
+      <div class="layer pins" data-depth="0" id="pins"></div>
+      <div class="layer substrate" data-depth="1" id="substrate"><span class="tri"></span></div>
+      <div class="layer die" data-depth="2"><div class="die-core"></div></div>
+      <div class="layer tim" data-depth="3"></div>
+      <div class="layer ihs" data-depth="4">
+        <div class="ihs-top">
+          <span class="brand">BVIG</span>
+          <span class="model">CORE&nbsp;PE-MFG</span>
+          <span class="sub">BARON LUIS B. VIGONTE</span>
+          <span class="sn">ASSOC ENGR · 2026 · PHL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="info">
+    <h1>Baron Luis<br>B. Vigonte</h1>
+    <p>Associate Engineer,<br>Product Engineering (Mfg.)</p>
+    <code>&gt; BVIG_ portfolio</code>
+  </div>
+  <div class="panel">
+      <figure class="portrait" aria-label="ASCII portrait of Baron Luis B. Vigonte">
+        <div class="portrait-bar"><i></i><i></i><i></i><span>~/baron/portrait.txt</span></div>
+        <pre class="ascii">#%%%%% %%%#%
+%%%%%%%%%@%%%%%@@%%
+@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@%%%%%%%@@@@@@@@@@
+@@@@##*+++++*%*%@@@@@@@@
+@@@*+++=====+*###@@@@@@@
+@%##*#**=====+*++***@@@
+%##%%##%*+=+#%%%#+++%*+
++**+++==+++=======+**=+
+*+===+++===++=--=+++=
+++++*+++====+===+*=
+*+==+**====+====+
+*++=========+++
+*****++++++==++:
++*+++======-:.::
+..::---*=-:.......-=:..
+::.::::::-+++:.:---:::::.......
+-::.::::--:::...:::::...............
+---:::::---::.....:::::::::......:.....
+:--:::::--=-::....::::::::......::......:.
+::--:::::-:--::..:::::::::....::.........::.
+---:::::::::-:.:::::.::::...::::......:...::.</pre>
+        <figcaption><span class="prompt">&gt;</span> "Turning ideas into systems."</figcaption>
+      </figure>
+  </div>
+  <script>
+    const pins = document.getElementById('pins');
+    for (let r = 0; r < 24; r++) for (let c = 0; c < 24; c++) {
+      const p = document.createElement('i');
+      p.className = (r > 7 && r < 16 && c > 7 && c < 16) || (!r && !c) ? 'pin off' : 'pin';
+      pins.appendChild(p);
+    }
+    const sub = document.getElementById('substrate');
+    for (let i = 0; i < 4; i++) for (let k = 0; k < 6; k++) {
+      const cap = document.createElement('span');
+      cap.className = 'cap';
+      const a = 105 + k * 24, e = 52;
+      const pos = [[a, e], [340 - e, a], [a, 340 - e], [e - 10, a]][i];
+      cap.style.left = pos[0] + 'px'; cap.style.top = pos[1] + 'px';
+      if (i % 2) cap.style.transform = 'rotate(90deg)';
+      sub.appendChild(cap);
+    }
+    const core = document.querySelector('.die-core');
+    for (let i = 0; i < 4; i++) core.appendChild(document.createElement('i'));
+    const cache = document.createElement('i'); cache.className = 'cache'; core.appendChild(cache);
+    document.querySelectorAll('.layer').forEach(l => l.style.transform = `translateZ(${l.dataset.depth * 22}px)`);
+  </script>
+</body>
+</html>

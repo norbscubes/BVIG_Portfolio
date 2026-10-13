@@ -19,7 +19,7 @@ p, li { font-size: clamp(16px, 1.15vw, 18.5px); line-height: 1.65; color: #c3d1d
 ul { list-style: none; display: grid; gap: 10px; }
 li b { color: var(--text); }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; }
-.tags span { border: 1px solid rgba(60,242,180,.4); padding: 6px 12px; border-radius: 20px; font-size: clamp(13.5px, 1vw, 15.5px); color: #d6e3ec; }
+.tags span { border: 1px solid rgba(60,242,180,.4); padding: 6px 12px; border-radius: 20px; background: rgba(5,8,13,.65); font-size: clamp(13.5px, 1vw, 15.5px); color: #d6e3ec; }
 a { color: var(--accent); }
 .hint {
   position: fixed; bottom: 24px; left: 50%; translate: -50% 0;

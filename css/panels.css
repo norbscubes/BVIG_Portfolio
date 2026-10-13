@@ -21,7 +21,7 @@ main { position: relative; }
   .panel > *:not(.term):not(.neon-name)::before {
     content: ""; position: absolute; inset: -10px -14px;
     border-radius: 18px;
-    background: radial-gradient(closest-side, rgba(5,8,13,.6), rgba(5,8,13,.45) 70%, transparent);
+    background: radial-gradient(closest-side, rgba(5,8,13,.85), rgba(5,8,13,.7) 70%, transparent);
     z-index: -1; pointer-events: none;
   }
   .panel, .panel.right { width: 100%; box-sizing: border-box; padding: 70px 6vw; margin-left: 0; gap: 10px; }

@@ -8,6 +8,7 @@
   filter: drop-shadow(0 0 2px #fff) drop-shadow(0 0 6px var(--accent)) drop-shadow(0 0 14px rgba(60,242,180,.6));
   transition: transform .18s ease, opacity .3s ease;
 }
+.lite .nav-arrow { filter: drop-shadow(0 0 5px var(--accent)); }
 .nav-arrow .tri {
   width: 54px; height: 22px; background: var(--accent);
   clip-path: polygon(50% 0, 100% 100%, 0 100%);

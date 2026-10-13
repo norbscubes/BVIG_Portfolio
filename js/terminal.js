@@ -5,12 +5,15 @@ const COMMON = Site.TERMINAL_COMMON;
 const panels = document.querySelectorAll('.panel');
 Site.terms = new Map();
 const terms = Site.terms;
+const visible = new WeakMap();
+const io = new IntersectionObserver(es => es.forEach(e => visible.set(e.target, e.isIntersecting)));
 panels.forEach(p => {
   const term = document.createElement('pre');
   term.className = `term ${p.classList.contains('right') ? 'on-left' : 'on-right'}`;
   term.setAttribute('aria-hidden', 'true');
   p.prepend(term);
   terms.set(p, term);
+  io.observe(term);
   runTerm(term, SCRIPTS[p.id] || SCRIPTS.about);
 });
 async function runTerm(term, script) {
@@ -30,6 +33,7 @@ async function runTerm(term, script) {
   for (;;) {
     const round = shuffle([...script, ...shuffle([...COMMON]).slice(0, 3)]);
     for (const [cmd, ...out] of round) {
+      while (!visible.get(term)) await sleep(400);
       push('');
       for (const ch of cmd) {
         lines[lines.length - 1] += ch;

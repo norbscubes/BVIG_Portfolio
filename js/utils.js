@@ -1,4 +1,6 @@
 window.Site = window.Site || {};
+Site.lite = matchMedia('(max-width: 768px), (pointer: coarse)').matches;
+document.documentElement.classList.toggle('lite', Site.lite);
 Site.smoothstep = (a, b, x) => {
   const t = Math.min(Math.max((x - a) / (b - a), 0), 1);
   return t * t * (3 - 2 * t);

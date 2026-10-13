@@ -10,7 +10,7 @@ const WAVES = [
 ];
 let phase = 0, speed = 1, lastScroll = 0, lastT = performance.now();
 function resizeWave() {
-  const dpr = devicePixelRatio || 1;
+  const dpr = Site.lite ? 1 : devicePixelRatio || 1;
   wave.width = innerWidth * dpr;
   wave.height = 180 * dpr;
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -18,7 +18,11 @@ function resizeWave() {
 addEventListener('resize', resizeWave);
 addEventListener('scroll', () => { lastScroll = performance.now(); }, { passive: true });
 resizeWave();
+const STEP = Site.lite ? 10 : 4, FRAME = Site.lite ? 1000 / 30 : 0;
+let lastDraw = 0;
 function drawWave(t) {
+  if (t - lastDraw < FRAME) { requestAnimationFrame(drawWave); return; }
+  lastDraw = t;
   const dt = Math.min((t - lastT) / 1000, 0.05);
   lastT = t;
   const target = t - lastScroll < 250 ? 0.12 : 1;
@@ -28,7 +32,7 @@ function drawWave(t) {
   ctx.clearRect(0, 0, w, 180);
   WAVES.forEach((wv, i) => {
     ctx.beginPath();
-    for (let x = 0; x <= w; x += 4) {
+    for (let x = 0; x <= w; x += STEP) {
       const env = Math.sin((x / w) * Math.PI);
       const y = mid
         + Math.sin(x * wv.freq + phase * wv.speed + i) * wv.amp * env
@@ -38,7 +42,7 @@ function drawWave(t) {
     ctx.strokeStyle = `rgba(${wv.color},${wv.alpha})`;
     ctx.lineWidth = wv.width;
     ctx.shadowColor = `rgba(${wv.color},0.8)`;
-    ctx.shadowBlur = 6;
+    ctx.shadowBlur = Site.lite ? 0 : 6;
     ctx.stroke();
   });
   requestAnimationFrame(drawWave);

@@ -98,7 +98,12 @@ function updateRotation() {
   });
   document.getElementById('hint').style.opacity = p > 0.05 ? 0 : 0.7;
 }
-addEventListener('scroll', updateRotation, { passive: true });
+let rotPending = false;
+addEventListener('scroll', () => {
+  if (rotPending) return;
+  rotPending = true;
+  requestAnimationFrame(() => { rotPending = false; updateRotation(); });
+}, { passive: true });
 updateRotation();
 animate(layers, {
   opacity: [0, 1],

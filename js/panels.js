@@ -26,7 +26,7 @@ function updateFloaters() {
     order.forEach((el, i) => {
       const ti = over > 0 ? smoothstep(0.1, 0.7, over + i * 0.07) : t;
       el.style.opacity = 1 - ti;
-      el.style.transform = `translateX(${side * ti * 160}px) translateY(${dirY * ti * 30}px)`;
+      el.style.transform = `translateX(${Site.lite ? 0 : side * ti * 160}px) translateY(${dirY * ti * 30}px)`;
     });
   });
 }

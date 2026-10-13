@@ -98,3 +98,5 @@
 }
 .layer.tim::before { border-radius: 40%; }
 .layer:not(.pins)::before { background: rgba(5,8,13,.45); inset: -10px; }
+.lite .layer::before { filter: none; background: radial-gradient(closest-side, rgba(5,8,13,.85), rgba(5,8,13,.6) 75%, transparent); }
+.lite .layer:not(.pins)::before { background: radial-gradient(closest-side, rgba(5,8,13,.45), transparent); }

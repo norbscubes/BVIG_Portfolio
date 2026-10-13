@@ -22,7 +22,7 @@ words.forEach((word, w) => {
 });
 const scatter = letters.map(() => ({ mag: 0.5 + Math.random(), rot: Math.random() * 2 - 1 }));
 let prevY = scrollY, scatterPending = false;
-addEventListener('scroll', () => {
+if (!Site.lite) addEventListener('scroll', () => {
   if (scatterPending) return;
   scatterPending = true;
   requestAnimationFrame(() => {
